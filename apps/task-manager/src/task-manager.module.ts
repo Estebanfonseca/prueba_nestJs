@@ -22,6 +22,10 @@ import { AssignTaskHandler } from '../handler/assign-task.handler';
 import { AssignTaskRepository } from '../repositories/assign-task.repository';
 import { AssignTaskService } from '../services/assign-task.service';
 import { AssignTaskController } from '../controllers/assign-task.controller';
+import { StateTaskHandler } from '../handler/state-task.handler';
+import { StateTaskRepository } from '../repositories/state-task.repository';
+import { StateTaskService } from '../services/state-task.service';
+import { StateTaskController } from '../controllers/state-task.controller';
 
 @Module({
   imports: [
@@ -37,6 +41,7 @@ import { AssignTaskController } from '../controllers/assign-task.controller';
     DeleteTaskController,
     MarkTaskController,
     AssignTaskController,
+    StateTaskController,
   ],
   providers: [
     CreateTaskHandler,
@@ -54,6 +59,9 @@ import { AssignTaskController } from '../controllers/assign-task.controller';
     AssignTaskHandler,
     AssignTaskRepository,
     AssignTaskService,
+    StateTaskHandler,
+    StateTaskRepository,
+    StateTaskService,
   ],
 })
 export class TaskManagerModule {}
