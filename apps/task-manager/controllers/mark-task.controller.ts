@@ -6,7 +6,7 @@ import { MarkTaskCommand } from '../commands/mark-task.command';
 export class MarkTaskController {
   constructor(private readonly commandBus: CommandBus) {}
 
-  @Patch(':id')
+  @Patch(':id/complete')
   async markTask(@Param('id') id: string): Promise<{ success: boolean }> {
     await this.commandBus.execute(new MarkTaskCommand(id));
     return { success: true };

@@ -9,6 +9,9 @@ export class Task extends Document {
   @Prop()
   descripcion: string;
 
+  @Prop({ default: 'por hacer' })
+  estado: string;
+
   @Prop({ default: false })
   completado: boolean;
 

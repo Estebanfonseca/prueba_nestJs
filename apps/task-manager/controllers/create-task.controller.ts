@@ -3,14 +3,14 @@ import { CommandBus } from '@nestjs/cqrs';
 import { CreateTaskCommand } from '../commands/create_task.command';
 import { CreateTaskService } from '../services/create-task.service';
 
-@Controller('create-task')
+@Controller()
 export class CreateTaskController {
   constructor(
     private readonly commandBus: CommandBus,
     private readonly createTaskService: CreateTaskService,
   ) {}
 
-  @Post()
+  @Post('create-task')
   async create(
     @Body() body: { titulo: string; descripcion: string; fechaLimite: Date },
   ) {
@@ -20,7 +20,7 @@ export class CreateTaskController {
     );
   }
 
-  @Get()
+  @Get('tasks')
   async getAllTasks() {
     return this.createTaskService.getAllTasks();
   }
